@@ -27,13 +27,13 @@ spec:
         args: ["-c","/scripts/provision.sh"]
         env:
         - name: PROJECT
-          value: meme-generator-275409
+          value: optimal-doodad-275503
         - name: SA_NAME
-          value: cloud-sql-proxy-15
+          value: cloud-sql-proxy-20
         - name: FULL_SA_NAME
           value: $(SA_NAME)@$(PROJECT).iam.gserviceaccount.com
         - name: INSTANCE_NAME
-          value: memegen-db-15
+          value: memegen-db-20
         - name: DB_NAME
           value: memegen
         - name: DB_USER
@@ -43,7 +43,7 @@ spec:
         - name: INSTANCE_ZONE
           value: us-west1-c
         - name: BUCKET_NAME
-          value: memegen-bucket-15
+          value: memegen-bucket-20
         - name: BUCKET_REGION
           value: us-west1
         - name: CLUSTER_NAME
