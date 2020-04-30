@@ -5,16 +5,19 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: stable
+  repository: gcr.io/meme-generator-275409/gmemegen
+  tag: latest
   pullPolicy: IfNotPresent
-
+hookimage:
+  repository: gcr.io/meme-generator-275409/preinstall
+  tag: latest
+  pullPolicy: IfNotPresent
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 80
 
 ingress:

@@ -1,0 +1,50 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "memegenerator.fullname" . }}
+  labels:
+{{ include "memegenerator.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: "{{ .Release.Name }}"
+      labels:
+        app.kubernetes.io/name: {{ include "memegenerator.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}        
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+        helm.sh/chart: "{{ .Chart.name }}-{{ .Chart.version }}"
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: pre-install-job
+        image: "{{ .Values.hookimage.repository }}:{{ .Values.hookimage.tag }}"
+        imagePullPolicy: {{ .Values.hookimage.pullPolicy }}
+        command: ["/bin/sh"]
+        args: ["-c","/scripts/provision.sh"]
+        env:
+        - name: PROJECT
+          value: meme-generator-275409
+        - name: SA_NAME
+          value: cloud-sql-proxy-14
+        - name: FULL_SA_NAME
+          value: $(SA_NAME)@$(PROJECT).iam.gserviceaccount.com
+        - name: INSTANCE_NAME
+          value: memegen-db-14
+        - name: DB_NAME
+          value: memegen
+        - name: DB_USER
+          value: postgres
+        - name: DB_PASS
+          value: password
+        - name: INSTANCE_ZONE
+          value: us-west1-a
+        - name: BUCKET_NAME
+          value: memegen-bucket-14
+        - name: BUCKET_REGION
+          value: us-west1
+        - name: CLUSTER_NAME
+          value: meme-cluster
