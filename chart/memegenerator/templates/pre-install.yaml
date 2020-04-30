@@ -16,7 +16,7 @@ spec:
         app.kubernetes.io/name: {{ include "memegenerator.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}        
         app.kubernetes.io/managed-by: {{ .Release.Service }}
-        helm.sh/chart: "{{ .Chart.name }}-{{ .Chart.version }}"
+        helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     spec:
       restartPolicy: Never
       containers:
