@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "memegenerator.fullname" . }}-test-connection"
+  labels:
+{{ include "memegenerator.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "memegenerator.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
