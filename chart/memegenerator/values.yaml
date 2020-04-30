@@ -5,11 +5,11 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/meme-generator-275409/gmemegen
+  repository: gcr.io/optimal-doodad-275503/gmemegen
   tag: latest
   pullPolicy: IfNotPresent
 hookimage:
-  repository: gcr.io/meme-generator-275409/preinstall
+  repository: gcr.io/optimal-doodad-275503/preinstall
   tag: latest
   pullPolicy: IfNotPresent
 imagePullSecrets: []
