@@ -15,6 +15,7 @@ function enable_api() {
   fi
 }
 
+enable_api cloudresourcemanager.googleapis.com
 enable_api sqladmin.googleapis.com
 enable_api container.googleapis.com
 enable_api iam.googleapis.com
@@ -35,8 +36,8 @@ gcloud projects add-iam-policy-binding "$PROJECT" \
 --member serviceAccount:"$FULL_SA_NAME" \
 --role roles/cloudsql.client > /dev/null
 
-gcloud iam service-accounts keys create credentials.json --iam-account "$FULL_SA_NAME"
-kubectl --namespace default create secret generic cloudsql-instance-creds --from-file=credentials.json=credentials.json
+gcloud iam service-accounts keys create key.json --iam-account "$FULL_SA_NAME"
+kubectl --namespace default create secret generic cloudsql-instance-creds --from-file=credentials.json=key.json
 
 kubectl --namespace default create secret generic cloudsql-db-credentials \
 --from-literal=username="$DB_USER" \
