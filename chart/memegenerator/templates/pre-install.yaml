@@ -27,7 +27,7 @@ spec:
         args: ["-c","/scripts/provision.sh"]
         env:
         - name: PROJECT
-          value: optimal-doodad-275503
+          value: meme-generator-275912
         - name: SA_NAME
           value: key-20
         - name: FULL_SA_NAME
