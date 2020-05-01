@@ -29,7 +29,7 @@ spec:
         - name: PROJECT
           value: optimal-doodad-275503
         - name: SA_NAME
-          value: cloud-sql-proxy-20
+          value: key-20
         - name: FULL_SA_NAME
           value: $(SA_NAME)@$(PROJECT).iam.gserviceaccount.com
         - name: INSTANCE_NAME
@@ -41,7 +41,7 @@ spec:
         - name: DB_PASS
           value: password
         - name: INSTANCE_ZONE
-          value: us-west1-c
+          value: us-west1-a
         - name: BUCKET_NAME
           value: memegen-bucket-20
         - name: BUCKET_REGION
