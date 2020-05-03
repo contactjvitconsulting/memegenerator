@@ -27,13 +27,13 @@ spec:
         args: ["-c","/scripts/provision.sh"]
         env:
         - name: PROJECT
-          value: meme-generator-275912
+          value: family-connections-gke-test
         - name: SA_NAME
-          value: key-20
+          value: key-21
         - name: FULL_SA_NAME
           value: $(SA_NAME)@$(PROJECT).iam.gserviceaccount.com
         - name: INSTANCE_NAME
-          value: memegen-db-20
+          value: memegen-db-21
         - name: DB_NAME
           value: memegen
         - name: DB_USER
@@ -41,10 +41,10 @@ spec:
         - name: DB_PASS
           value: password
         - name: INSTANCE_ZONE
-          value: us-west1-a
+          value: us-central1-c
         - name: BUCKET_NAME
-          value: memegen-bucket-20
+          value: memegen-bucket-21
         - name: BUCKET_REGION
           value: us-west1
         - name: CLUSTER_NAME
-          value: meme-cluster
+          value: cluster-demo

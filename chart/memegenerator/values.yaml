@@ -5,11 +5,11 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/meme-generator-275912/gmemegen
+  repository: gcr.io/family-connections-gke-test/gmemegen
   tag: latest
   pullPolicy: IfNotPresent
 hookimage:
-  repository: gcr.io/meme-generator-275912/preinstall
+  repository: gcr.io/family-connections-gke-test/preinstall
   tag: latest
   pullPolicy: IfNotPresent
 imagePullSecrets: []
