@@ -28,6 +28,10 @@ spec:
         env:
         - name: PROJECT
           value: family-connections-gke-test
+        - name: SA_NAME
+          value: key-24
+        - name: FULL_SA_NAME
+          value: $(SA_NAME)@$(PROJECT).iam.gserviceaccount.com          
         - name: INSTANCE_NAME
           value: memegen-db-24
         - name: INSTANCE_ZONE
