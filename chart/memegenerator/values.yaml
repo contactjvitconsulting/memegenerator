@@ -12,6 +12,10 @@ hookimage:
   repository: gcr.io/family-connections-gke-test/preinstall
   tag: latest
   pullPolicy: IfNotPresent
+deleteimage:
+  repository: gcr.io/family-connections-gke-test/predelete
+  tag: latest
+  pullPolicy: IfNotPresent  
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
